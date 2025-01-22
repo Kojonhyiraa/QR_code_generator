@@ -23,4 +23,6 @@ public class User {
     private String email;
     private Integer mobileNumber;
 
+    //If any problem come back to tutorial video section on the model(AllArgsconstructor removal)
+
 }
