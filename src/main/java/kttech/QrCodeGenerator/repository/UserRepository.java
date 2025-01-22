@@ -1,4 +1,11 @@
 package kttech.QrCodeGenerator.repository;
 
-public interface UserRepository {
+import kttech.QrCodeGenerator.models.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+
+
+
 }
