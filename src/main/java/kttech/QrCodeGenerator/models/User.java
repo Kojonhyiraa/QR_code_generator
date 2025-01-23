@@ -1,10 +1,7 @@
 package kttech.QrCodeGenerator.models;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +10,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
+@Table(name = "UserDetails")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,6 +22,14 @@ public class User {
     private String lastName;
     private String email;
     private Integer mobileNumber;
+
+    public User(String firstName, String lastName, String email, Integer mobileNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.mobileNumber = mobileNumber;
+    }
+
 
     //If any problem come back to tutorial video section on the model(AllArgsconstructor removal)
 
