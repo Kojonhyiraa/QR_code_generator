@@ -23,12 +23,6 @@ public class User {
     private String email;
     private Integer mobileNumber;
 
-    public User(String firstName, String lastName, String email, Integer mobileNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.mobileNumber = mobileNumber;
-    }
 
 
     //If any problem come back to tutorial video section on the model(AllArgsconstructor removal)
