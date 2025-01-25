@@ -1,7 +1,9 @@
 package kttech.QrCodeGenerator.utils;
 
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import kttech.QrCodeGenerator.models.User;
-import lombok.var;
+
 
 public class QRCodeGenerator {
 
@@ -14,7 +16,10 @@ public class QRCodeGenerator {
 
 
         //Add dependency for QR code generator.Its called zxing
-        var qr
+        var qrCodeQwriter = new QRCodeWriter();
+
+        BitMatrix bitMatrix ;
+
 
 
     }
