@@ -12,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/v1")
 public class UserController {
+
     private final UserService userService;
 
     @GetMapping("/all")
