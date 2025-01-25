@@ -3,6 +3,7 @@ package kttech.QrCodeGenerator.utils;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
+import com.google.zxing.datamatrix.DataMatrixReader;
 import com.google.zxing.qrcode.QRCodeWriter;
 import kttech.QrCodeGenerator.models.User;
 
@@ -34,6 +35,7 @@ public class QRCodeGenerator {
                 400 ) ;
 
         Path path = FileSystems.getDefault().getPath(qrCodeName);
+        MatrixToImageWriter.writeToFile(bitMatrix,"PNG",path);
 
     }
 }
