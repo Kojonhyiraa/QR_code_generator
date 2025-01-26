@@ -37,7 +37,7 @@ public class QRCodeGenerator {
 
         Path path = FileSystems.getDefault().getPath(qrCodeName);
         MatrixToImageWriter.writeToFile(bitMatrix,"PNG",path);
-        #######
+
 
     }
 }
