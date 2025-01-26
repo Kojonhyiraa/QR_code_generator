@@ -24,6 +24,7 @@ public class QRCodeGenerator {
         //Add dependency for QR code generator.Its called zxing
         var qrCodeQwriter = new QRCodeWriter();
 
+
         BitMatrix bitMatrix = qrCodeQwriter.encode(
                 "ID:"+user.getId() +"\n"+
                         "First Name:"+user.getFirstName() +"\n"+
@@ -36,6 +37,7 @@ public class QRCodeGenerator {
 
         Path path = FileSystems.getDefault().getPath(qrCodeName);
         MatrixToImageWriter.writeToFile(bitMatrix,"PNG",path);
+        #######
 
     }
 }
