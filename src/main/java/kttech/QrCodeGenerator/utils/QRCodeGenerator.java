@@ -13,7 +13,7 @@ import java.nio.file.Path;
 
 
 public class QRCodeGenerator {
-
+    //Utility class to generate QR codes.
     public static void generateQRCode(User user) throws WriterException, IOException {
 
         //Path where we will save the generated QR code image
@@ -38,8 +38,6 @@ public class QRCodeGenerator {
 
         Path path = FileSystems.getDefault().getPath(qrCodeName);
         MatrixToImageWriter.writeToPath(bitMatrix, "PNG",path);
-
-
 
     }
 }
