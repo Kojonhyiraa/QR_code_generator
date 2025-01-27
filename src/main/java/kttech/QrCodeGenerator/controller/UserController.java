@@ -16,6 +16,8 @@ import java.util.List;
 @RequestMapping("/v1")
 public class UserController {
 
+
+    //User Service Dependency injection
     private final UserService userService;
 
     @GetMapping("/all")
@@ -28,17 +30,18 @@ public class UserController {
                 QRCodeGenerator.generateQRCode(user);
             }
         }
+
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
 
-
+    //Create a new user
     @PostMapping("/add")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         return ResponseEntity.ok(userService.createUser(user));
     }
 
-
+    //Find user by userId
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         return ResponseEntity.ok(userService.findUserById(id));

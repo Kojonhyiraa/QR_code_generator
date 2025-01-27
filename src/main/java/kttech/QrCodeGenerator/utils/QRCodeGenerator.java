@@ -16,7 +16,10 @@ import java.util.Map;
 
 public class QRCodeGenerator {
     public static void generateQRCode(User user) throws WriterException, IOException {
+        //file path to save QR Codes
         String qrCodePath = "src/main/resources/static";
+
+        //FileName of generated image
         String qrCodeName = qrCodePath + user.getFirstName() + user.getId() + "-QRCode.png";
 
         var qrCodeWriter = new QRCodeWriter();
@@ -31,7 +34,7 @@ public class QRCodeGenerator {
                 user.getMobileNumber()
         );
 
-        System.out.println("QR Code Content: " + qrContent); // Debugging
+        System.out.println("QR Code Content: " + qrContent); // Debugging in your console
 
         // Set error correction level to HIGH
         Map<EncodeHintType, Object> hints = new HashMap<>();
