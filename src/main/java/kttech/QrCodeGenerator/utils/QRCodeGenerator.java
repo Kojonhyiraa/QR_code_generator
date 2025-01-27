@@ -11,33 +11,30 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
-
 public class QRCodeGenerator {
-    //Utility class to generate QR codes.
     public static void generateQRCode(User user) throws WriterException, IOException {
-
-        //Path where we will save the generated QR code image
         String qrCodePath = "src/main/resources/static";
-        //Name of the saved image
-        String qrCodeName = qrCodePath+user.getFirstName()+user.getId()+"-QRCode.png";
+        String qrCodeName = qrCodePath + user.getFirstName() + user.getId() + "-QRCode.png";
 
-
-        //Add dependency for QR code generator.Its called zxing
         var qrCodeWriter = new QRCodeWriter();
 
+        // Simplify the QR code content
+        String qrContent = "ID:" + user.getId() + ", " +
+                "First Name:" + user.getFirstName() + ", " +
+                "Last Name:" + user.getLastName() + ", " +
+                "Email:" + user.getEmail() + ", " +
+                "Mobile Number:" + user.getMobileNumber();
+
+        System.out.println("QR Code Content: " + qrContent); // Debugging
 
         BitMatrix bitMatrix = qrCodeWriter.encode(
-                "ID:"+user.getId() +"\n"+
-                        "First Name:"+user.getFirstName() +"\n"+
-                        "Last Name:"+user.getLastName() +"\n"+
-                        "Email:"+user.getEmail() +"\n"+
-                        "Mobile Number:"+user.getMobileNumber() +"\n",
+                qrContent,
                 BarcodeFormat.QR_CODE,
-                400,
-                400 ) ;
+                600, // Increased size
+                600
+        );
 
         Path path = FileSystems.getDefault().getPath(qrCodeName);
-        MatrixToImageWriter.writeToPath(bitMatrix, "PNG",path);
-
+        MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
     }
 }
