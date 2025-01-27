@@ -19,11 +19,14 @@ public class QRCodeGenerator {
         var qrCodeWriter = new QRCodeWriter();
 
         // Simplify the QR code content
-        String qrContent = "ID:" + user.getId() + ", " +
-                "First Name:" + user.getFirstName() + ", " +
-                "Last Name:" + user.getLastName() + ", " +
-                "Email:" + user.getEmail() + ", " +
-                "Mobile Number:" + user.getMobileNumber();
+        String qrContent = String.format(
+                "{\"id\":%d,\"firstName\":\"%s\",\"lastName\":\"%s\",\"email\":\"%s\",\"mobileNumber\":\"%s\"}",
+                user.getId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                user.getMobileNumber()
+        );
 
         System.out.println("QR Code Content: " + qrContent); // Debugging
 
