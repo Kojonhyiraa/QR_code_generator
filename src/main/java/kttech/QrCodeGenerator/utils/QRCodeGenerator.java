@@ -7,13 +7,14 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import kttech.QrCodeGenerator.models.User;
 
+import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
 
 public class QRCodeGenerator {
 
-    public static void generateQRCode(User user) throws WriterException {
+    public static void generateQRCode(User user) throws WriterException, IOException {
 
         //Path where we will save the generated QR code image
         String qrCodePath = "src/main/resources/static";
@@ -22,10 +23,10 @@ public class QRCodeGenerator {
 
 
         //Add dependency for QR code generator.Its called zxing
-        var qrCodeQwriter = new QRCodeWriter();
+        var qrCodeWriter = new QRCodeWriter();
 
 
-        BitMatrix bitMatrix = qrCodeQwriter.encode(
+        BitMatrix bitMatrix = qrCodeWriter.encode(
                 "ID:"+user.getId() +"\n"+
                         "First Name:"+user.getFirstName() +"\n"+
                         "Last Name:"+user.getLastName() +"\n"+
@@ -36,7 +37,8 @@ public class QRCodeGenerator {
                 400 ) ;
 
         Path path = FileSystems.getDefault().getPath(qrCodeName);
-        MatrixToImageWriter;
+        MatrixToImageWriter.writeToPath(bitMatrix, "PNG",path);
+
 
 
     }
